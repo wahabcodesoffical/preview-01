@@ -80,25 +80,17 @@
   gsap.timeline({ defaults: { ease: "power3.out" } })
     .to("[data-hero]", { opacity: 1, y: 0, duration: 0.9, stagger: 0.12, startAt: { y: 36 } });
 
-  /* Floating chips */
-  gsap.utils.toArray(".chip").forEach(function (chip, i) {
-    gsap.to(chip, {
-      y: i % 2 === 0 ? -12 : 12,
-      duration: 2.6 + i * 0.5,
+  /* Floating hero badge */
+  var badge = document.querySelector(".hero__badge");
+  if (badge) {
+    gsap.to(badge, {
+      y: -10,
+      duration: 2.8,
       ease: "sine.inOut",
       yoyo: true,
       repeat: -1
     });
-  });
-
-  /* Climate card gentle float */
-  gsap.to(".climate-card", {
-    y: -10,
-    duration: 3.4,
-    ease: "sine.inOut",
-    yoyo: true,
-    repeat: -1
-  });
+  }
 
   /* Scroll reveals */
   if (hasTrigger) {
